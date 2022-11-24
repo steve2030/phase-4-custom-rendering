@@ -8,8 +8,10 @@ class CheesesController < ApplicationController
 
   # GET /cheeses/:id
   def show
-    cheese = Cheese.find_by(id: params[:id])
-    render json: cheese
+    byebug
+    cheese = Cheese.find(params[:id])
+    render json:cheese, except: [:updated_at, :created_at, :id]
+
   end
 
 end
